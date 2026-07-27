@@ -5,8 +5,8 @@ const music = document.getElementById("music");
 const musicBtn = document.getElementById("musicBtn");
 
 
-// YES BUTTON
-yes.onclick = function(){
+// ❤️ YES BUTTON
+yes.onclick = function () {
 
 document.body.innerHTML = `
 <div style="
@@ -22,9 +22,7 @@ padding-top:50px;
 
 <h2>You made me happy 🥰</h2>
 
-<div style="font-size:60px;">
-🎉💖🎊
-</div>
+<div style="font-size:60px;">🎉💖🎊</div>
 
 <img src="cutecat.gif" width="220">
 
@@ -34,82 +32,87 @@ padding-top:50px;
 };
 
 
-// NO BUTTON BHAGAO
+// 🙈 NO BUTTON
+let noClickCount = 0;
 
-function moveNo(){
+function moveNo() {
 
-no.style.position="absolute";
+noClickCount++;
 
-let x = Math.random()*70;
-let y = Math.random()*70;
+if (noClickCount >= 2) {
 
-no.style.left = x + "%";
-no.style.top = y + "%";
+    // Dusri baar Yes ke piche chhup jaaye
+    no.style.position = "absolute";
+    no.style.left = yes.offsetLeft + "px";
+    no.style.top = yes.offsetTop + "px";
+
+    no.style.zIndex = "0";
+
+    yes.style.position = "relative";
+    yes.style.zIndex = "2";
+
+} else {
+
+    // Pehli baar random bhaage
+    no.style.position = "absolute";
+    no.style.left = Math.random() * 70 + "%";
+    no.style.top = Math.random() * 70 + "%";
 
 }
 
-
-no.onmouseover = moveNo;
+}
 
 no.onclick = moveNo;
+no.onmouseover = moveNo;
 
 
-// CREATE LINK
-
+// 🔗 CREATE LINK
 create.onclick = function(){
 
 let name = document.getElementById("name").value;
 let msg = document.getElementById("message").value;
 
-let data = btoa(name+"|"+msg);
+let data = btoa(name + "|" + msg);
 
 let link = location.origin + location.pathname + "#p=" + data;
 
-prompt("Copy this link",link);
+prompt("Copy this link", link);
 
 };
 
 
-// RECEIVER MODE
-
+// 📩 RECEIVER MODE
 if(location.hash.startsWith("#p=")){
 
 let data = atob(location.hash.replace("#p=",""));
 
 let arr = data.split("|");
 
+document.getElementById("name").style.display = "none";
+document.getElementById("message").style.display = "none";
+document.getElementById("create").style.display = "none";
 
-document.getElementById("name").style.display="none";
-
-document.getElementById("message").style.display="none";
-
-document.getElementById("create").style.display="none";
-
-
-document.getElementById("typing").innerHTML="❤️ "+arr[0];
-
-document.getElementById("showMessage").innerHTML=arr[1];
+document.getElementById("typing").innerHTML = "❤️ " + arr[0];
+document.getElementById("showMessage").innerHTML = arr[1];
 
 }
 
 
-// MUSIC
-
-musicBtn.onclick=function(){
+// 🎵 MUSIC
+musicBtn.onclick = function(){
 
 music.play();
 
-musicBtn.innerHTML="🎵 Playing...";
+musicBtn.innerHTML = "🎵 Playing...";
 
 };
 
 
-// TYPING EFFECT
+// ⌨️ TYPING EFFECT
+let text = "Hey ❤️ I have a tiny question for you... 💌";
+let i = 0;
 
-let text="Hey ❤️ I have a tiny question for you... 💌";
-
-let i=0;
-
+document.getElementById("typing").innerHTML = "";
 
 function typing(){
 
@@ -125,5 +128,6 @@ setTimeout(typing,80);
 
 }
 
-
+if(!location.hash.startsWith("#p=")){
 typing();
+}
