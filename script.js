@@ -97,6 +97,9 @@ document.getElementById("showMessage").innerHTML = arr[1];
 
 }
 
+window.onload = function () {
+    music.play().catch(() => {});
+};
 
 // 🎵 MUSIC
 musicBtn.onclick = function(){
