@@ -99,3 +99,10 @@ if(location.hash.startsWith("#p=")){
     document.getElementById("showMessage").innerHTML = arr[1];
 
 }
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.onclick = function(){
+    music.play();
+    musicBtn.innerHTML = "🎵 Playing...";
+};
