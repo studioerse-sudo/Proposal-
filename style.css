@@ -17,10 +17,13 @@ body {
     text-align: center;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    animation: pop 1s ease;
 }
 
 .card img {
     border-radius: 20px;
+    animation: bounce 2s infinite;
 }
 
 h1 {
@@ -43,11 +46,26 @@ button {
 
 #no {
     background: #ddd;
+    position: absolute;
 }
 
 button:hover {
     transform: scale(1.1);
 }
+
+#typing {
+    min-height: 60px;
+    color: #ff0066;
+}
+
+#showMessage {
+    font-size: 18px;
+    color: #555;
+}
+
+
+/* Floating Hearts */
+
 .hearts span {
     position: absolute;
     bottom: -50px;
@@ -79,6 +97,7 @@ button:hover {
     animation-delay:3s;
 }
 
+
 @keyframes float {
     0% {
         transform: translateY(0);
@@ -90,39 +109,37 @@ button:hover {
         opacity:0;
     }
 }
-.card {
-    animation: pop 1s ease;
-}
+
+
+/* Card Animation */
 
 @keyframes pop {
     0% {
         transform: scale(0.5);
         opacity: 0;
     }
+
     100% {
         transform: scale(1);
         opacity: 1;
     }
 }
 
-#typing {
-    min-height: 60px;
-    color: #ff0066;
-}
 
-#musicBtn {
-    background: #ff8fab;
-    color: white;
-    border-radius: 25px;
-    padding: 10px 25px;
-}
-
-img {
-    animation: bounce 2s infinite;
-}
+/* Image Bounce */
 
 @keyframes bounce {
     50% {
         transform: translateY(-10px);
     }
+}
+
+
+/* Music Button */
+
+#musicBtn {
+    background:#ff8fab;
+    color:white;
+    border-radius:25px;
+    padding:10px 25px;
 }
