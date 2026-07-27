@@ -143,3 +143,39 @@ button:hover {
     border-radius:25px;
     padding:10px 25px;
 }
+/* Input & Textarea */
+
+input,
+textarea {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ffd6e0;
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+    font-family: Arial, sans-serif;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #ff4d88;
+    box-shadow: 0 0 10px rgba(255, 77, 136, 0.3);
+}
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+    color: #cfcfcf;
+    opacity: 1;
+    font-style: italic;
+}
+
+/* Textarea */
+
+textarea {
+    height: 90px;
+    resize: none;
+}
