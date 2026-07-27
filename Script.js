@@ -106,3 +106,15 @@ musicBtn.onclick = function(){
     music.play();
     musicBtn.innerHTML = "🎵 Playing...";
 };
+let text = "Hey ❤️ I have a tiny question for you... 💌";
+let i = 0;
+
+function typing() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 80);
+    }
+}
+
+typing();
