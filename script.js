@@ -1,4 +1,8 @@
 const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
 
 yes.onclick = function () {
 
@@ -24,99 +28,56 @@ You made me happy 🥰
 🎉💖🎊
 </div>
 
-<img src="bear.gif" width="220">
+<img src="cutecat.gif" width="220">
 
 </div>
 `;
 
 };
-const no = document.getElementById("no");
 
 
-no.onmouseover = function () {
-    no.style.position = "absolute";
-    no.style.left = Math.random() * 80 + "%";
-    no.style.top = Math.random() * 80 + "%";
-};
+no.onmouseover = function(){
 
-yes.onclick = function () {
-
-    document.body.innerHTML = `
-    <div style="text-align:center;margin-top:100px;font-family:Arial;">
-        <h1>❤️ Thank You ❤️</h1>
-
-        <h2>You Made Me So Happy 🥰</h2>
-
-        <img src="cutecat.gif" width="200">
-
-    </div>
-    `;
-
-}
-
-no.onclick = function () {
-    const x = Math.random() * 250 - 125;
-    const y = Math.random() * 250 - 125;
-
-    no.style.transform = `translate(${x}px, ${y}px)`;
-};setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random() * 100 + "vw";
-
-    document.getElementById("hearts").appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 5000);
-
-}, 300);
-const create = document.getElementById("create");
-
-create.onclick = function () {
-
-    const name = document.getElementById("name").value;
-    const msg = document.getElementById("message").value;
-
-    const data = btoa(name + "|" + msg);
-
-    const link = location.origin + location.pathname + "#p=" + data;
-
-    prompt("Copy this link", link);
+no.style.position="absolute";
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
 
 };
 
-if(location.hash.startsWith("#p=")){
 
-    const data = atob(location.hash.replace("#p=",""));
+no.onclick = function(){
 
-    const arr = data.split("|");
+no.style.position="absolute";
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
 
-    document.querySelector("h1").innerHTML = "❤️ " + arr[0];
+};
 
-    document.getElementById("showMessage").innerHTML = arr[1];
+
+
+musicBtn.onclick=function(){
+
+music.play();
+musicBtn.innerHTML="🎵 Playing...";
+
+};
+
+
+
+let text="Hey ❤️ I have a tiny question for you... 💌";
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+
+setTimeout(typing,80);
 
 }
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
 
-if(musicBtn){
-    musicBtn.onclick = function(){
-        music.play();
-        musicBtn.innerHTML = "🎵 Playing...";
-    };
-}
-let text = "Hey ❤️ I have a tiny question for you... 💌";
-let i = 0;
-
-function typing() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 80);
-    }
 }
 
 typing();
