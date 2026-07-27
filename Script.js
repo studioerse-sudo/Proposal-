@@ -47,7 +47,7 @@ yes.onclick = function () {
 
         <h2>You Made Me So Happy 🥰</h2>
 
-        <img src="bear.gif" width="200">
+        <img src="cutecat.gif" width="200">
 
     </div>
     `;
@@ -102,10 +102,12 @@ if(location.hash.startsWith("#p=")){
 const music = document.getElementById("music");
 const musicBtn = document.getElementById("musicBtn");
 
-musicBtn.onclick = function(){
-    music.play();
-    musicBtn.innerHTML = "🎵 Playing...";
-};
+if(musicBtn){
+    musicBtn.onclick = function(){
+        music.play();
+        musicBtn.innerHTML = "🎵 Playing...";
+    };
+}
 let text = "Hey ❤️ I have a tiny question for you... 💌";
 let i = 0;
 
