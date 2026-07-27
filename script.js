@@ -39,7 +39,7 @@ function moveNo() {
 
 noClickCount++;
 
-if (noClickCount >= 2) {
+if (noClickCount >= 3) {
 
     // Dusri baar Yes ke piche chhup jaaye
     no.style.position = "absolute";
